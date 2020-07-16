@@ -1,0 +1,17 @@
+import numpy
+
+
+def dotProduct(n,listA,listB):
+    for i in range(n):
+        print(listA[i]*listB[i])
+
+
+def main():
+    num = eval(input("Enter the size of the list: "))
+    list_a = numpy.random.randint(1,1000,num)
+    list_b = numpy.random.randint(1,1000,num)
+    print(list_a)
+    print(list_b)
+    dotProduct(num,list_a,list_b)
+
+main()
