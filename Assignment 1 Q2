@@ -1,0 +1,50 @@
+#blcorner = bottom-left corner
+#trcorner = top-right corner
+class Rectangle:
+    def __init__(self,blcorner, trcorner):
+        self.blcorner = blcorner
+        self.trcorner = trcorner
+
+    def getblcorner(self):
+        return self.blcorner
+
+    def gettrcorner(self):
+        return self.trcorner
+
+    def printArea(self):
+        x = self.trcorner[0]-self.blcorner[0]
+        y = self.trcorner[1]-self.blcorner[1]
+        area = x*y
+        print(area)
+
+    def printPerim(self):
+        a = 2*(self.trcorner[0]-self.blcorner[0])
+        b = 2*(self.trcorner[1]-self.blcorner[1])
+        perim = a+b
+        print(perim)
+
+#checks whether the rectangles intersect by comparing the x and y values for both rectangles
+#checks whether the rectangles lie on the side of each other or above and below each other
+def intersecTest(r1,r2):
+    if(r1.getblcorner()[0] >= r2.gettrcorner()[0] or r2.getblcorner()[0] >= r1.gettrcorner()[0]):
+        return False
+
+    if(r1.getblcorner()[1] >= r2.gettrcorner()[1] or r2.getblcorner()[1] >= r1.gettrcorner()[1]):
+        return False
+
+
+    return True
+
+def main():
+    r1 = Rectangle((2,4),(6,8))
+    r2 = Rectangle((4,2),(10,6))
+
+    intersecTest(r1,r2)
+
+    print(intersecTest(r1,r2))
+   
+    r1.printArea()
+    r2.printPerim()
+
+main()
+    
